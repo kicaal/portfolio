@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageContent from "../components/pageContent.astro";
+import TimeLine from "../components/timeLine.astro";
+import SubSection from "../components/subSection.astro";
+---
+
+<Layout title="Kilian Cabrera - About">
+  <PageContent title="About">
+    <section class="flex flex-col gap-4 max-w-[75ch] text-xl">
+      <p>
+        Hi, I'm Kilian Cabrera! I'm a Front End Engineer based in Caldes de
+        Montbui (Barcelona).
+      </p>
+      <p>I'm a web developer with in-depth experience in UI/UX development.</p>
+      <p>
+        My expertise lies within front-end web apps, and the main languages in
+        my tech stack are JavaScript, React, and of course HTML/CSS.
+      </p>
+      <p>I’m a lifelong learner and love visiting new places and run.</p>
+    </section>
+    <SubSection title={"Work Experience"}>
+      <TimeLine />
+    </SubSection>
+  </PageContent>
+</Layout>
