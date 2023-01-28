@@ -1,0 +1,56 @@
+---
+import Me from "../assets/me.jpeg";
+---
+
+<div
+  class="dark:text-white flex items-center md:items-start lg:items-center md:mt-20 lg:mt-0 w-full h-full"
+>
+  <div
+    class="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-32 justify-center lg:justify-between items-center w-full"
+  >
+    <div class="flex-1">
+      <h1 class="text-left font-bold text-4xl lg:text-5xl">
+        <p>
+          Hi! 👋 I'm
+          <span
+            style="-webkit-background-clip: text"
+            class="bg-clip-text text-transparent bg-gradient-to-r from-blueGradient to-pinkGradient"
+          >
+            Kilian Cabrera
+          </span>
+        </p>
+      </h1>
+      <div class="pt-4 flex flex-col gap-4">
+        <p class="text-xl md:text-3xl">
+          I'm a Front End Engineer from Barcelona.
+        </p>
+        <p class="text-xl md:text-3xl">
+          I code, write and build stuff on internet.
+        </p>
+        <p class="text-lg md:text-xl">
+          I'm a Front End Engineer interested in ui/ux and fix problems. I work
+          at Qida.
+        </p>
+        <p class="text-lg md:text-xl">
+          I'm focused on building products with JavaScript, specifically in
+          React.
+        </p>
+        <p class="text-lg md:text-xl">
+          When I'm not coding, I'm probably running or visiting somewhere new.
+        </p>
+        <p class="text-lg md:text-xl">
+          You can find me on GitHub, Twitter and LinkedIn.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="rounded-full bg-gradient-to-b from-blueGradient to-pinkGradient w-max"
+    >
+      <img
+        class="border-4 border-transparent rounded-full w-64 h-64 lg:w-96 lg:h-96 object-cover"
+        src={Me}
+      />
+    </div>
+  </div>
+</div>

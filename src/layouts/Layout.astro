@@ -1,35 +1,81 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+import gitHubImage from "../assets/github.svg";
+import linkedinImage from "../assets/linkedin.svg";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  // Whenever the user explicitly chooses light mode
+  localStorage.theme = "light";
+
+  // Whenever the user explicitly chooses dark mode
+  localStorage.theme = "dark";
+
+  // Whenever the user explicitly chooses to respect the OS preference
+  localStorage.removeItem("theme");
+</script>
+
+<html class="dark" lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white dark:bg-zinc-900">
+    <div class="bg-gradient-to-r from-blueGradient to-pinkGradient h-1"></div>
+    <div class="container max-w-6xl mx-auto p-5 lg:py-10 h-full">
+      <header class="flex justify-between">
+        <span
+          style="-webkit-background-clip: text"
+          class="bg-clip-text text-transparent bg-gradient-to-r from-blueGradient to-pinkGradient"
+        >
+          {"{KCA}"}
+        </span>
+        <ul class="flex gap-6 text-black dark:text-white">
+          <li>
+            <a class="do" href="/">Home</a>
+          </li>
+          <li><a href="/">Posts</a></li>
+          <li><a href="/">Proyectos</a></li>
+          <li>
+            <img class="w-6" src={gitHubImage} alt="Github logo" />
+          </li>
+          <li>
+            <img class="w-6" src={linkedinImage} alt="Linkedin logo" />
+          </li>
+        </ul>
+      </header>
+      <slot />
+    </div>
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  html {
+    font-family: system-ui, sans-serif;
+    height: 100%;
+  }
+
+  body,
+  main {
+    height: 100%;
+  }
 </style>
