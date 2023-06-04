@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/hero.astro";
+import Projects from "../components/projects.astro";
 ---
 
 <Layout title="Kilian Cabrera - Dev">
-  <Hero />
+  <div class="flex flex-col gap-20">
+    <Hero />
+    <Projects />
+  </div>
 </Layout>
