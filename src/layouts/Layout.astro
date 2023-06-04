@@ -7,7 +7,20 @@ const { title } = Astro.props;
 
 import gitHubImage from "../assets/github.svg";
 import linkedinImage from "../assets/linkedin.svg";
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 ---
+
+<script>
+  if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+</script>
 
 <html class="dark" lang="es">
   <head>
@@ -38,6 +51,9 @@ import linkedinImage from "../assets/linkedin.svg";
           </li>
           <li>
             <img class="w-6" src={linkedinImage} alt="Linkedin logo" />
+          </li>
+          <li>
+            <ThemeSwitcher />
           </li>
         </ul>
       </header>
