@@ -5,6 +5,11 @@ export interface Props {
 
 const { title } = Astro.props;
 
+const LINKEDIN_URL =
+  "https://www.linkedin.com/in/kilian-cabrera-%C3%A1lava-581755164/";
+
+const GITHUB_URL = "https://github.com/kicaal";
+
 import gitHubImage from "../assets/github.svg";
 import linkedinImage from "../assets/linkedin.svg";
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
@@ -46,13 +51,17 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
         <ul class="flex gap-6 text-black dark:text-white">
           <li><a href="/about">About</a></li>
           <li><a href="/">Lab</a></li>
-          <li>
-            <img class="w-6" src={gitHubImage} alt="Github logo" />
+          <li class="cursor-pointer hover:opacity-70 transition">
+            <a href={GITHUB_URL} target="_blank">
+              <img class="w-6" src={gitHubImage} alt="Github logo" />
+            </a>
           </li>
-          <li>
-            <img class="w-6" src={linkedinImage} alt="Linkedin logo" />
+          <li class="cursor-pointer hover:opacity-70 transition">
+            <a href={LINKEDIN_URL} target="_blank">
+              <img class="w-6" src={linkedinImage} alt="Linkedin logo" />
+            </a>
           </li>
-          <li>
+          <li class="hover:opacity-70 transition">
             <ThemeSwitcher />
           </li>
         </ul>
@@ -62,20 +71,19 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
       </main>
     </div>
   </body>
+
+  <style is:global>
+    html {
+      min-height: 100vh;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    .Layout__content {
+      @apply grid grid-cols-1 max-w-7xl mx-auto p-5 min-h-screen;
+      grid-template-rows: auto 1fr auto;
+    }
+  </style>
 </html>
-
-<style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-    min-height: 100vh;
-  }
-
-  body {
-    min-height: 100vh;
-  }
-
-  .Layout__content {
-    @apply grid grid-cols-1 max-w-7xl mx-auto p-5 min-h-screen;
-    grid-template-rows: auto 1fr auto;
-  }
-</style>
