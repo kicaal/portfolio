@@ -11,13 +11,13 @@ export const projects = [
     publishedAt: "05/06/2023",
   },
   {
-    title: "AI job offer generator",
+    title: "AI Job offer generator",
     href: "https://kilian-hackaton-adevinta.vercel.app/",
     image: infojobsHackaton,
     publishedAt: "01/06/2023",
   },
   {
-    title: "2048 game",
+    title: "2048 Game",
     href: "https://2048-game-kilian.vercel.app",
     image: Game,
     publishedAt: "26/02/2023",
